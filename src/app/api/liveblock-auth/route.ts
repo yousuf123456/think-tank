@@ -1,9 +1,9 @@
 import { Liveblocks } from "@liveblocks/node";
 import { NextResponse } from "next/server";
 
-import { auth, currentUser } from "@clerk/nextjs";
 import { ConvexHttpClient } from "convex/browser";
 import { api } from "../../../../convex/_generated/api";
+import { auth, currentUser } from "@clerk/nextjs/server";
 
 const liveblocks = new Liveblocks({
   secret:
@@ -14,7 +14,7 @@ const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
 
 export async function POST(request: Request) {
   try {
-    const authentication = auth();
+    const authentication = await auth();
     const user = await currentUser();
 
     if (!user || !authentication)

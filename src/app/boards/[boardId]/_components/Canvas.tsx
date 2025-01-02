@@ -648,7 +648,7 @@ export const Canvas = ({ boardId }: { boardId: string }) => {
         onPointerMove={onPointerMove}
         onPointerDown={onPointerDown}
         className={cn(
-          "w-[100vw] h-[100vh] bg-grid",
+          "w-[100vw] h-[100vh] bg-white bg-grid-small-black/[0.2]",
           canvasState.mode === CanvasMode.Resizing &&
             getResizeCursor(canvasState.corner),
           (canvasState.mode === CanvasMode.Inserting ||

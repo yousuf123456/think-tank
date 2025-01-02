@@ -1,7 +1,8 @@
-import { Loader2 } from "lucide-react";
 import React from "react";
-import { Toolbar } from "./Toolbar";
+
 import { Header } from "./Header";
+import { Toolbar } from "./Toolbar";
+import { Loader2 } from "lucide-react";
 
 export const Loading = () => {
   return (
@@ -9,7 +10,7 @@ export const Loading = () => {
       <Toolbar />
       <Header />
 
-      <Loader2 className="w-8 h-8 text-slate-500 animate-spin" />
+      <Loader2 className="w-8 h-8 text-rose-500 animate-spin" />
     </div>
   );
 };

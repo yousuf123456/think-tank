@@ -7,7 +7,7 @@ import React from "react";
 
 export const EmptyOrg = () => {
   return (
-    <div className="w-full h-full flex flex-col gap-8 justify-center items-center">
+    <div className="mt-20 w-full h-full flex flex-col gap-8 justify-center items-center">
       <Image
         src={"/org.svg"}
         alt="Create Organization Illustration"

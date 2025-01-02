@@ -7,7 +7,7 @@ import { CreateBoardModal } from "../CreateBoardModal";
 
 export const EmptyBoards = ({ orgId }: { orgId: string }) => {
   return (
-    <div className="h-full flex flex-col gap-5 justify-center items-center">
+    <div className="mt-20 flex flex-col gap-5 justify-center items-center">
       <Image
         src={"/create-board.svg"}
         alt="Create board illustration"

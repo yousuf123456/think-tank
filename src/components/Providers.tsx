@@ -29,6 +29,8 @@ const ModalsProvider = () => {
 export const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
     <ClerkProvider
+      signInForceRedirectUrl={"/dashboard"}
+      signUpForceRedirectUrl={"/dashboard"}
       appearance={{
         variables: { colorPrimary: "#f43f5e" },
       }}

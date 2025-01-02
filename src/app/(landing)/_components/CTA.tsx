@@ -34,7 +34,7 @@ export const CTA = () => {
 
         <SignedOut>
           <div className="flex mx-auto gap-8">
-            <SignUpButton redirectUrl="/dashboard">
+            <SignUpButton>
               <button className="w-64 py-3 border border-black bg-transparent text-black  dark:border-white relative group transition duration-200">
                 <div className="absolute -bottom-2 -right-2 bg-pink-300/70 h-full w-full -z-10 group-hover:bottom-0 group-hover:right-0 transition-all duration-200" />
 

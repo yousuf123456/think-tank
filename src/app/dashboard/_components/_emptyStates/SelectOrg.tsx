@@ -1,11 +1,11 @@
 import React from "react";
+
 import Image from "next/image";
-import { Dialog } from "@/components/ui/dialog";
 import { OrganizationSwitcher } from "@clerk/nextjs";
 
 export const SelectOrg = () => {
   return (
-    <div className="w-full h-full flex flex-col gap-8 justify-center items-center">
+    <div className="w-full mt-20 flex flex-col gap-8 justify-center items-center">
       <Image
         src={"/org.svg"}
         alt="Select Organization Illustration"
