@@ -1,9 +1,10 @@
 import React from "react";
 import getStroke from "perfect-freehand";
-import { getSvgPathFromStroke, rgbToHex } from "@/lib/utils";
+import { cn, getSvgPathFromStroke, rgbToHex } from "@/lib/utils";
 import { Layer, LayerType, PathLayer } from "@/app/types";
 
 interface PathProps {
+  isDrawing: boolean;
   layerId?: string;
   layer?: PathLayer;
   isDraft?: boolean;
@@ -17,6 +18,7 @@ interface PathProps {
 export const Path: React.FC<PathProps> = ({
   layer,
   isDraft,
+  isDrawing,
   x,
   y,
   points,
@@ -44,7 +46,7 @@ export const Path: React.FC<PathProps> = ({
       }}
       x={0}
       y={0}
-      className=" cursor-move"
+      className={cn(!isDrawing && "hover:cursor-move")}
       fill={rgbToHex(isDraft ? fill! : layer?.fill!)}
       stroke={rgbToHex(isDraft ? fill! : layer?.stroke!)}
       strokeWidth={isDraft ? 2 : layer?.strokeWidth!}

@@ -649,11 +649,10 @@ export const Canvas = ({ boardId }: { boardId: string }) => {
         onPointerDown={onPointerDown}
         className={cn(
           "w-[100vw] h-[100vh] bg-white bg-grid-small-black/[0.2]",
-          canvasState.mode === CanvasMode.Resizing &&
-            getResizeCursor(canvasState.corner),
           (canvasState.mode === CanvasMode.Inserting ||
             (canvasState.mode === CanvasMode.Resizing && !showSelectionBox)) &&
-            "cursor-crosshair"
+            "cursor-crosshair",
+          canvasState.mode === CanvasMode.Pencil && "cursor-default"
         )}
       >
         <g
@@ -663,6 +662,7 @@ export const Canvas = ({ boardId }: { boardId: string }) => {
         >
           {pencilDraft !== null && pencilColor !== null && (
             <Path
+              isDrawing={canvasState.mode === CanvasMode.Pencil}
               fill={rgbToHex(pencilColor)}
               points={pencilDraft}
               isDraft

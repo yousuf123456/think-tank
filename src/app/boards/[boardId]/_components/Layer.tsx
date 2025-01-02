@@ -39,7 +39,12 @@ export const LayerPreview = memo(
 
       case LayerType.Path:
         return (
-          <Path onPointerDown={onPointerDown} layer={layer} layerId={layerId} />
+          <Path
+            onPointerDown={onPointerDown}
+            layer={layer}
+            layerId={layerId}
+            isDrawing={canvasMode === CanvasMode.Pencil}
+          />
         );
 
       case LayerType.Ellipse:
