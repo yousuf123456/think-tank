@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { EmptyBoards } from "./emptyStates/EmptyBoards";
 import { useQuery } from "convex/react";
 import { api } from "../../../../convex/_generated/api";
@@ -73,7 +73,7 @@ export const BoardsList = ({ orgId, query }: BoardsListProps) => {
             orgId={board.orgId}
             title={board.title}
             image={board.imageUrl}
-            isFav={board.isFavourite}
+            isFav={!!board.isFavorite}
             authorName={board.authorName}
             createdAt={board._creationTime}
           />

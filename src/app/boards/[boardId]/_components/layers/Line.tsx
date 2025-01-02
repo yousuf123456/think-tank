@@ -1,38 +1,33 @@
-import { Color, Layer } from "@/app/types";
+import { LineLayer, Layer } from "@/app/types";
 import { rgbToHex } from "@/lib/utils";
 import React from "react";
-import rgbHex from "rgb-hex";
 
-interface RectangleProps {
-  layer: Layer;
+interface LineProps {
+  layer: LineLayer;
   layerId: string;
   selectionColor?: string;
   onPointerDown: (e: any, layerId: string) => void;
 }
 
-export const Rectangle: React.FC<RectangleProps> = ({
+export const Line: React.FC<LineProps> = ({
   layer,
   layerId,
   onPointerDown,
   selectionColor,
 }) => {
-  const { width, height, x, y, fill, strokeWidth, stroke, opacity } = layer;
+  const { start, end, strokeWidth, stroke, opacity } = layer;
 
   return (
-    <rect
-      x={0}
-      y={0}
-      rx={8}
-      ry={8}
-      width={width}
-      height={height}
+    <line
+      x2={end.x}
+      y2={end.y}
+      x1={start.x}
+      y1={start.y}
       opacity={opacity}
-      fill={rgbToHex(fill)}
       strokeWidth={strokeWidth}
       className="hover:cursor-move"
       stroke={selectionColor ?? rgbToHex(stroke)}
       onPointerDown={(e) => onPointerDown(e, layerId)}
-      style={{ transform: `translate(${x}px, ${y}px)` }}
     />
   );
 };

@@ -14,7 +14,7 @@ export const AddNewOrganization = () => {
           <Button
             size={"sm"}
             aria-label="add new organization"
-            className="w-10 h-10 bg-slate-600 hover:bg-slate-700 transition"
+            className="w-10 h-10 bg-slate-700 hover:bg-slate-600 transition"
           >
             <Plus className="text-white w-5 h-5" />
           </Button>

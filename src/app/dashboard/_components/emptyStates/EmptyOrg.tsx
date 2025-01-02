@@ -9,7 +9,7 @@ export const EmptyOrg = () => {
   return (
     <div className="w-full h-full flex flex-col gap-8 justify-center items-center">
       <Image
-        src={"/create-org.svg"}
+        src={"/org.svg"}
         alt="Create Organization Illustration"
         width={200}
         height={200}

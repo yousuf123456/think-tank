@@ -23,15 +23,12 @@ export const ToolbarItem = ({
       variant={"ghost"}
       onClick={onClick}
       disabled={isDisabled}
-      className={cn(
-        "h-fit p-2 hover:bg-orange-100",
-        isActive && "bg-orange-100"
-      )}
+      className={cn("h-fit p-2 hover:bg-rose-100", isActive && "bg-rose-100")}
     >
       <Icon
         className={cn(
           "w-[17px] h-[17px] text-zinc-800",
-          isActive && "text-orange-500"
+          isActive && "text-rose-500"
         )}
       />
     </Button>

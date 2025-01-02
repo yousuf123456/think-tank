@@ -1,16 +1,15 @@
-import { Color, Layer } from "@/app/types";
+import { EllipseLayer, Layer } from "@/app/types";
 import { rgbToHex } from "@/lib/utils";
 import React from "react";
-import rgbHex from "rgb-hex";
 
-interface RectangleProps {
-  layer: Layer;
+interface EllipseProps {
+  layer: EllipseLayer;
   layerId: string;
   selectionColor?: string;
   onPointerDown: (e: any, layerId: string) => void;
 }
 
-export const Rectangle: React.FC<RectangleProps> = ({
+export const Ellipse: React.FC<EllipseProps> = ({
   layer,
   layerId,
   onPointerDown,
@@ -19,13 +18,11 @@ export const Rectangle: React.FC<RectangleProps> = ({
   const { width, height, x, y, fill, strokeWidth, stroke, opacity } = layer;
 
   return (
-    <rect
-      x={0}
-      y={0}
-      rx={8}
-      ry={8}
-      width={width}
-      height={height}
+    <ellipse
+      cx={width / 2}
+      cy={height / 2}
+      rx={width / 2}
+      ry={height / 2}
       opacity={opacity}
       fill={rgbToHex(fill)}
       strokeWidth={strokeWidth}

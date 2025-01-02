@@ -6,10 +6,11 @@ export type Color = {
 
 export enum LayerType {
   Rectangle,
+  Diamond,
   Ellipse,
   Text,
-  // Note,
   Path,
+  Line,
 }
 
 export type Camera = {
@@ -17,7 +18,13 @@ export type Camera = {
   y: number;
 };
 
-export type Layer = RectangleLayer | EllipseLayer | TextLayer | PathLayer;
+export type Layer =
+  | RectangleLayer
+  | EllipseLayer
+  | TextLayer
+  | PathLayer
+  | DiamondLayer
+  | LineLayer;
 
 export type RectangleLayer = {
   type: LayerType.Rectangle;
@@ -25,7 +32,19 @@ export type RectangleLayer = {
   y: number;
   height: number;
   width: number;
-  fill: Color;
+  fill: Color | string;
+  stroke: Color;
+  strokeWidth: number;
+  opacity: number;
+};
+
+export type LineLayer = {
+  type: LayerType.Line;
+  start: Point;
+  end: Point;
+  stroke: Color;
+  opacity: number;
+  strokeWidth: number;
 };
 
 export type EllipseLayer = {
@@ -34,7 +53,22 @@ export type EllipseLayer = {
   y: number;
   height: number;
   width: number;
-  fill: Color;
+  fill: Color | string;
+  stroke: Color;
+  strokeWidth: number;
+  opacity: number;
+};
+
+export type DiamondLayer = {
+  type: LayerType.Diamond;
+  x: number;
+  y: number;
+  height: number;
+  width: number;
+  fill: Color | string;
+  stroke: Color;
+  strokeWidth: number;
+  opacity: number;
 };
 
 export type PathLayer = {
@@ -45,8 +79,11 @@ export type PathLayer = {
   height: number;
   // Could be computed based on points
   width: number;
-  fill: Color;
+  fill: Color | string;
+  stroke: Color;
+  strokeWidth: number;
   points: number[][];
+  opacity: number;
 };
 
 export type TextLayer = {
@@ -55,19 +92,12 @@ export type TextLayer = {
   y: number;
   height: number;
   width: number;
-  fill: Color;
+  fill: Color | string;
   value?: string;
+  stroke: Color;
+  strokeWidth: number;
+  opacity: number;
 };
-
-// export type NoteLayer = {
-//   type: LayerType.Note;
-//   x: number;
-//   y: number;
-//   height: number;
-//   width: number;
-//   fill: Color;
-//   value?: string;
-// };
 
 export type Point = {
   x: number;
@@ -98,16 +128,27 @@ export type CanvasState =
       current?: Point;
     }
   | {
+      mode: CanvasMode.TranslatingPoint;
+      start?: boolean;
+      end?: boolean;
+    }
+  | {
       mode: CanvasMode.Translating;
       current: Point;
     }
   | {
       mode: CanvasMode.Inserting;
-      layerType: LayerType.Ellipse | LayerType.Rectangle | LayerType.Text;
-      // | LayerType.Note;
+      layerType:
+        | LayerType.Ellipse
+        | LayerType.Rectangle
+        | LayerType.Text
+        | LayerType.Diamond;
     }
   | {
       mode: CanvasMode.Pencil;
+    }
+  | {
+      mode: CanvasMode.Arrow;
     }
   | {
       mode: CanvasMode.Pressing;
@@ -148,4 +189,12 @@ export enum CanvasMode {
    * When the pencil is activated
    */
   Pencil,
+  /**
+   * When the arrow is activated
+   */
+  Arrow,
+  /**
+   * When the points of arrow is being changed
+   */
+  TranslatingPoint,
 }

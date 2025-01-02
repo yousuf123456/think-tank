@@ -13,7 +13,6 @@ const DashboardPage = () => {
 
         <div className="flex-1 flex flex-col lg:pl-[256px]">
           <Navbar />
-
           <Dashboard />
         </div>
       </div>

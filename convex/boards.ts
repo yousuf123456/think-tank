@@ -21,6 +21,7 @@ export const getBoards = query({
 
     let boards: {
       _id: Id<"board">;
+      isFavorite?: boolean;
       _creationTime: number;
       orgId: string;
       title: string;
@@ -41,7 +42,7 @@ export const getBoards = query({
 
       boards = await getAllOrThrow(ctx.db, favsBoardsIds);
 
-      boards = boards.map((board) => ({ ...board, isFavourite: true }));
+      boards = boards.map((board) => ({ ...board, isFavorite: true }));
       return boards;
     }
 
@@ -69,7 +70,7 @@ export const getBoards = query({
 
     const boardsWithFavBool = boards.map((board) => ({
       ...board,
-      isFavourite: favs.some((fav) => fav.boardId === board._id),
+      isFavorite: favs.some((fav) => fav.boardId === board._id),
     }));
 
     return boardsWithFavBool || [];

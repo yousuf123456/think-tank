@@ -56,7 +56,8 @@ export const Board = ({
     if (isFav) {
       unfavourite({
         boardId: id,
-      }).catch(() => {
+      }).catch((e) => {
+        console.log(e);
         toast({
           title: "Failed to unfavourite board",
           description: "Please refresh and try again later.",
@@ -78,8 +79,7 @@ export const Board = ({
   };
 
   return (
-    // <Link href={`boards/${id}`}>
-    <div className="w-full rounded-b-md flex flex-col gap-0 shadow-sm group border border-zinc-100">
+    <div className="w-full rounded-b-md flex flex-col gap-0 shadow-md group border border-zinc-100">
       <div className="relative w-full h-auto aspect-square bg-white overflow-hidden">
         <Image src={image} alt="Board Image" className="w-full h-full" fill />
 
@@ -97,7 +97,7 @@ export const Board = ({
       <Link href={`boards/${id}`}>
         <div className="px-2 py-4 flex flex-col gap-2">
           <div className="flex justify-between items-center">
-            <p className="text-sm font-medium flex-1 truncate text-zinc-600">
+            <p className="text-lg font-medium flex-1 truncate text-gray-600">
               {title}
             </p>
 
@@ -111,8 +111,8 @@ export const Board = ({
               ) : (
                 <Star
                   className={cn(
-                    "w-[17px] h-[17px] stroke-[2px] text-zinc-500 hover:fill-amber-400 hover:text-amber-400",
-                    isFav && "fill-amber-400 text-amber-400",
+                    "w-[17px] h-[17px] stroke-[2px] text-zinc-500 hover:fill-rose-500 hover:text-rose-500",
+                    isFav && "fill-rose-500 text-rose-500",
                     isFavouriting || (isUnfavouriting && "opacity-50")
                   )}
                 />
@@ -129,6 +129,5 @@ export const Board = ({
         </div>
       </Link>
     </div>
-    // </Link>
   );
 };

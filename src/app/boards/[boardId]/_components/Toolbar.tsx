@@ -2,6 +2,8 @@ import { CanvasMode, CanvasState, LayerType } from "@/app/types";
 import {
   ArrowBigLeft,
   Circle,
+  Diamond,
+  Minus,
   MousePointer2,
   Notebook,
   Pen,
@@ -111,6 +113,34 @@ export const Toolbar: React.FC<ToolbarProps> = ({
             canvasState.mode === CanvasMode.Inserting &&
             canvasState.layerType === LayerType.Ellipse
           }
+        />
+
+        <ToolbarItem
+          Icon={Diamond}
+          tooltip="Polygon"
+          onClick={() => {
+            onClick();
+            setCanvasState({
+              mode: CanvasMode.Inserting,
+              layerType: LayerType.Diamond,
+            });
+          }}
+          isActive={
+            canvasState.mode === CanvasMode.Inserting &&
+            canvasState.layerType === LayerType.Diamond
+          }
+        />
+
+        <ToolbarItem
+          Icon={Minus}
+          tooltip="Line"
+          onClick={() => {
+            onClick();
+            setCanvasState({
+              mode: CanvasMode.Arrow,
+            });
+          }}
+          isActive={canvasState.mode === CanvasMode.Arrow}
         />
 
         <div className="w-[1px] lg:w-full lg:h-[1px] bg-slate-300 max-lg:mx-3 lg:my-3" />

@@ -1,16 +1,15 @@
-import { Color, Layer } from "@/app/types";
-import { rgbToHex } from "@/lib/utils";
 import React from "react";
-import rgbHex from "rgb-hex";
+import { Layer } from "@/app/types";
+import { rgbToHex } from "@/lib/utils";
 
-interface RectangleProps {
+interface DiamondProps {
   layer: Layer;
   layerId: string;
   selectionColor?: string;
   onPointerDown: (e: any, layerId: string) => void;
 }
 
-export const Rectangle: React.FC<RectangleProps> = ({
+export const Diamond: React.FC<DiamondProps> = ({
   layer,
   layerId,
   onPointerDown,
@@ -18,15 +17,22 @@ export const Rectangle: React.FC<RectangleProps> = ({
 }) => {
   const { width, height, x, y, fill, strokeWidth, stroke, opacity } = layer;
 
+  const centerX = width / 2;
+  const centerY = height / 2;
+
+  const points = [
+    [centerX, 0],
+    [width, centerY],
+    [centerX, height],
+    [0, centerY],
+  ];
+
+  const pointsString = points.map((point) => point.join(",")).join(" ");
+
   return (
-    <rect
-      x={0}
-      y={0}
-      rx={8}
-      ry={8}
-      width={width}
-      height={height}
+    <polygon
       opacity={opacity}
+      points={pointsString}
       fill={rgbToHex(fill)}
       strokeWidth={strokeWidth}
       className="hover:cursor-move"

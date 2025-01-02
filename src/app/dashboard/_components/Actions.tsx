@@ -6,7 +6,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useToast } from "@/components/ui/use-toast";
-import { BASE_URL } from "@/confg";
+import { BASE_URL } from "@/config";
 import { useActions } from "@/store/actions";
 import { Copy, MoreVertical, Pencil, Trash2 } from "lucide-react";
 import React from "react";

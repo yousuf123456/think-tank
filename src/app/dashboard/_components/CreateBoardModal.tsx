@@ -69,10 +69,12 @@ export const CreateBoardModal = ({
       }}
     >
       <DialogTrigger asChild>{children}</DialogTrigger>
+
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Create New Board</DialogTitle>
         </DialogHeader>
+
         <div className="flex flex-col gap-1 mt-4">
           <p className="text-sm text-zinc-600">Board Name</p>
           <Input
@@ -87,11 +89,8 @@ export const CreateBoardModal = ({
           <DialogClose asChild disabled={isLoading}>
             <Button variant={"ghost"}>Cancel</Button>
           </DialogClose>
-          <Button
-            onClick={onCreate}
-            disabled={isLoading}
-            className=" bg-secondary-foreground hover:bg-secondary-foreground/90"
-          >
+
+          <Button onClick={onCreate} disabled={isLoading}>
             Create
           </Button>
         </div>

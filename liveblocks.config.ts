@@ -1,4 +1,4 @@
-import { Layer } from "@/app/types";
+import { Color, Layer } from "@/app/types";
 import {
   LiveList,
   LiveMap,
@@ -17,7 +17,9 @@ const client = createClient({
 // `user.presence` property. Must be JSON-serializable.
 type Presence = {
   selection: string[];
+  penColor: Color | null;
   cursor: { x: number; y: number } | null;
+  pencilDraft: [x: number, y: number, pressure: number][] | null;
 };
 
 // Optionally, Storage represents the shared document that persists in the

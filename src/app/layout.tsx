@@ -4,6 +4,12 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Providers } from "@/components/Providers";
 import { Toaster } from "@/components/ui/toaster";
+import localfont from "next/font/local";
+
+const kalam = localfont({
+  src: "./Kalam-Variable.ttf",
+  variable: "--font-kalam",
+});
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(inter.className, "h-full overflow-x-hidden")}>
+      <body className={cn(kalam.className, "h-full overflow-x-hidden")}>
         <Toaster />
         <Providers>{children}</Providers>
       </body>

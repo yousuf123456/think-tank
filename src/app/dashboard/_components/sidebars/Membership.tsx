@@ -37,9 +37,9 @@ export const Membership = ({
         )}
       >
         <Image
+          className="object-cover object-center rounded-md"
           src={image}
           alt={alt}
-          className="object-cover object-center rounded-md"
           fill
         />
       </div>

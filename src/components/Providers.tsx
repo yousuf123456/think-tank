@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { ClerkProvider, useAuth } from "@clerk/nextjs";
-import { ConvexProvider, ConvexReactClient } from "convex/react";
+import { ConvexReactClient } from "convex/react";
 import { ConvexProviderWithClerk } from "convex/react-clerk";
 import { EditModel } from "@/modals/EditModel";
 import { DeleteBoardModal } from "@/modals/DeleteBoardModal";
@@ -28,7 +28,11 @@ const ModalsProvider = () => {
 
 export const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        variables: { colorPrimary: "#f43f5e" },
+      }}
+    >
       <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
         <ModalsProvider />
         {children}
