@@ -2,7 +2,7 @@ import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 
 import React from "react";
 import { Search } from "./Search";
-import { InviteMembers } from "./sidebars/InviteMembers";
+import { InviteMembers } from "./_sidebars/InviteMembers";
 
 export const Navbar = () => {
   return (

@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
-import { EmptyBoards } from "./emptyStates/EmptyBoards";
+import { EmptyBoards } from "./_emptyStates/EmptyBoards";
 import { useQuery } from "convex/react";
 import { api } from "../../../../convex/_generated/api";
-import { EmptyFav } from "./emptyStates/EmptyFav";
+import { EmptyFav } from "./_emptyStates/EmptyFav";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { CreateBoardModal } from "./CreateBoardModal";
 import { Board } from "./Board";
-import { NothingFound } from "./emptyStates/NothingFound";
+import { NothingFound } from "./_emptyStates/NothingFound";
 
 interface BoardsListProps {
   orgId: string;
@@ -66,7 +66,7 @@ export const BoardsList = ({ orgId, query }: BoardsListProps) => {
       </div>
 
       <div className="grid grid-cols-1 min-[520px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-8">
-        {boards.map((board) => (
+        {boards.map((board, i) => (
           <Board
             id={board._id}
             key={board._id}

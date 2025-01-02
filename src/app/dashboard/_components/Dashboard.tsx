@@ -1,9 +1,10 @@
 "use client";
+
 import React from "react";
-import { EmptyOrg } from "./emptyStates/EmptyOrg";
+import { EmptyOrg } from "./_emptyStates/EmptyOrg";
 import { useOrganization, useOrganizationList } from "@clerk/nextjs";
-import { SelectOrg } from "./emptyStates/SelectOrg";
-import { Loading } from "./emptyStates/Loading";
+import { SelectOrg } from "./_emptyStates/SelectOrg";
+import { Loading } from "./_emptyStates/Loading";
 import { BoardsList } from "./BoardsList";
 import { useSearchParams } from "next/navigation";
 

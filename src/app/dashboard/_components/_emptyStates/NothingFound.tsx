@@ -13,7 +13,7 @@ export const NothingFound = ({ q }: { q: string }) => {
 
       <div>
         <h1 className="text-xl sm:text-2xl text-zinc-700 text-center">
-          No results for <span className=" font-semibold">"{q}"</span>
+          No results for <span className="font-semibold">{q}</span>
         </h1>
       </div>
     </div>

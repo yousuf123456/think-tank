@@ -1,9 +1,9 @@
 import React from "react";
-import { Layer } from "@/app/types";
+import { DiamondLayer } from "@/app/types";
 import { rgbToHex } from "@/lib/utils";
 
 interface DiamondProps {
-  layer: Layer;
+  layer: DiamondLayer;
   layerId: string;
   selectionColor?: string;
   onPointerDown: (e: any, layerId: string) => void;

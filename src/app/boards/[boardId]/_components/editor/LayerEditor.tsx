@@ -87,8 +87,9 @@ export const LayerEditor = ({
                   Stroke
                 </p>
                 <div className="flex gap-3 flex-wrap">
-                  {rgbStrokes.map((stroke_) => (
+                  {rgbStrokes.map((stroke_, i) => (
                     <ColorButton
+                      key={i}
                       color={stroke_}
                       isActive={
                         JSON.stringify(stroke) === JSON.stringify(stroke_)
@@ -105,9 +106,10 @@ export const LayerEditor = ({
                   Background
                 </p>
                 <div className="flex gap-3 flex-wrap">
-                  {rgbBackgrounds.map((bg) => {
+                  {rgbBackgrounds.map((bg, i) => {
                     return typeof bg === "string" ? (
                       <ColorButton
+                        key={i}
                         transparent
                         isActive={fill === "transparent"}
                         onClick={() =>
@@ -116,6 +118,7 @@ export const LayerEditor = ({
                       />
                     ) : (
                       <ColorButton
+                        key={i}
                         color={bg}
                         isActive={JSON.stringify(bg) === JSON.stringify(fill)}
                         onClick={() =>
@@ -156,8 +159,9 @@ export const LayerEditor = ({
                 Text Color
               </p>
               <div className="flex gap-3 flex-wrap">
-                {rgbStrokes.map((stroke_) => (
+                {rgbStrokes.map((stroke_, i) => (
                   <ColorButton
+                    key={i}
                     color={stroke_}
                     isActive={JSON.stringify(fill) === JSON.stringify(stroke_)}
                     onClick={() =>

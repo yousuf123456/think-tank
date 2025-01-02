@@ -7,6 +7,7 @@ const getBoundingBoxes = (selectedLayers: Layer[]): XYWH | null => {
 
   if (!firstLayer) return null;
 
+  //@ts-ignore These properties does not exist on all the Layer Types
   const { x, y, width, height } = firstLayer;
 
   let top = y;
@@ -18,6 +19,7 @@ const getBoundingBoxes = (selectedLayers: Layer[]): XYWH | null => {
     // ignore first layer
     if (i === 0) return;
 
+    //@ts-ignore These properties does not exist on all the Layer Types
     const { x, y, width, height } = layer;
 
     if (x < left) {

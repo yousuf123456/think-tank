@@ -233,3 +233,5 @@ export const SelectionBox = memo(
     );
   }
 );
+
+SelectionBox.displayName = "SelectionBox";

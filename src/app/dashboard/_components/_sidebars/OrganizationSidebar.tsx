@@ -1,5 +1,6 @@
+import React, { Suspense } from "react";
+
 import { OrganizationSwitcher } from "@clerk/nextjs";
-import React from "react";
 import { PageLinks } from "./PageLinks";
 
 export const OrganizationSidebar = () => {
@@ -49,7 +50,9 @@ export const OrganizationSidebar = () => {
         </div>
 
         <div className="flex flex-col gap-4">
-          <PageLinks />
+          <Suspense>
+            <PageLinks />
+          </Suspense>
         </div>
       </div>
     </aside>

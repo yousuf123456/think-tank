@@ -27,12 +27,13 @@ export const OrganizationsList = () => {
 
   return (
     <div className="flex flex-col gap-4">
-      {userMemberships.data.map((membership) => (
+      {userMemberships.data.map((membership, i) => (
         <Membership
           image={membership.organization.imageUrl}
           name={membership.organization.name}
           id={membership.organization.id}
           alt="Organization Image"
+          key={i}
         />
       ))}
     </div>

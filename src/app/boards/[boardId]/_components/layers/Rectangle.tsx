@@ -1,10 +1,10 @@
-import { Color, Layer } from "@/app/types";
+import { RectangleLayer } from "@/app/types";
 import { rgbToHex } from "@/lib/utils";
 import React from "react";
 import rgbHex from "rgb-hex";
 
 interface RectangleProps {
-  layer: Layer;
+  layer: RectangleLayer;
   layerId: string;
   selectionColor?: string;
   onPointerDown: (e: any, layerId: string) => void;
